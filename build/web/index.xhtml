@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a ="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:inputText id="nombre" required="true" a:placeholder="nombre"
+                         requiredMessage="Ingresa algo, no seas gacho"
+                         value="#{persona.nombre}"/>
+            <h:inputText id="ape" required="true" a:placeholder="apellido"
+                         requiredMessage="Ingresa algo, no seas gacho"
+                         value="#{persona.apellido}"/>
+            
+            <!--<select name="pais">
+                <option>México</option>
+                <option>Alemania</option>
+                <option>Marruecos</option>
+   
+            </select>-->
+            <!---<h:selectOneMenu value="#{persona.pais}">
+                <f:selectItem itemValue="México" itemLabel="México"/>
+                <f:selectItem itemValue="Alemania" itemLabel="Alemania"/>
+                <f:selectItem itemValue="Marruecos" itemLabel="Marruecos"/>
+            </h:selectOneMenu>-->
+            
+            <h:selectOneMenu value="#{persona.pais}" >
+                <f:selectItems value="#{persona.paises}"/>
+            </h:selectOneMenu>
+            
+            <h:commandButton value="guardar" action="#{persona.crear()}"/>
+            <br/>
+            
+        </h:form>
+    </h:body>
+</html>
+
